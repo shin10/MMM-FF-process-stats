@@ -1,0 +1,38 @@
+<ul>
+  <li>
+    <span class="icon">
+      <i class="fa fa-bell"></i>
+    </span>
+    <span class="key">{{"CPU_USAGE_WAKEUPS_PER_SECOND" | translate}}</span>
+    <span class="val">{{stats.CPUUsage.idleWakeupsPerSecond}} {{"PER_SECOND" | translate}}</span>
+  </li>
+  <li>
+    <span class="icon">
+      <i class="fa fa-microchip"></i>
+    </span>
+    <span class="key">{{"CPU_USAGE_PERCENT" | translate}}</span>
+    <span class="val">{{stats.CPUUsage.percentCPUUsage.toFixed(2)}} %</span>
+  </li>
+  <li>
+    <span class="icon">
+      <i class="fa fa-tachometer"></i>
+    </span>
+    <span class="key">{{"MEMORY" | translate}}</span>
+    <span class="val">{{ ((1 - (stats.systemMemoryInfo.free / stats.systemMemoryInfo.total)) * 100).toFixed(1) }} %</span>
+  </li>
+  <li>
+    <span class="icon">
+      <i class="fa fa-shuffle"></i>
+    </span>
+    <span class="key">{{"SWAP" | translate}}</span>
+    <span class="val">{{ ((1 - (stats.systemMemoryInfo.swapFree / stats.systemMemoryInfo.swapTotal)) * 100).toFixed(1) }} %</span>
+  </li>
+
+  <li>
+    <span class="icon">
+      <i class="fa fa-clock-o"></i>
+    </span>
+    <span class="key">{{"UPTIME" | translate}}</span>
+    <span class="val">{{stats.uptime}}</span>
+  </li>
+</ul>

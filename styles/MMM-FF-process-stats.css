@@ -1,0 +1,57 @@
+/* Magic Mirror
+ * Module: MMM-FF-process-stats
+ *
+ * By Michael Trenkler
+ * ISC Licensed.
+ */
+.MMM-FF-process-stats {
+  font-size: small;
+}
+
+.MMM-FF-process-stats ul {
+  display: table;
+  padding: 0;
+  margin: 0 0 0 auto;
+}
+
+.MMM-FF-process-stats li {
+  display: table-row;
+  padding: 0;
+  margin: 0;
+}
+
+.MMM-FF-process-stats .icon,
+.MMM-FF-process-stats .key,
+.MMM-FF-process-stats .val {
+  display: table-cell;
+}
+
+.MMM-FF-process-stats .icon {
+  text-align: center;
+  width: 3ch;
+}
+
+.MMM-FF-process-stats .key {
+  text-align: left;
+  padding-right: 1ch;
+}
+
+.MMM-FF-process-stats .val {
+  text-align: right;
+}
+
+.MMM-FF-process-stats .wrapper.single-line-layout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.MMM-FF-process-stats .wrapper.single-line-layout > row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*# sourceMappingURL=MMM-FF-process-stats.css.map */

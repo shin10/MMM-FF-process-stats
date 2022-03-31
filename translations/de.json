@@ -1,0 +1,9 @@
+{
+  "PROCESS_STATS": "Prozess Statistiken",
+  "CPU_USAGE_WAKEUPS_PER_SECOND": "CPU Wakeups",
+  "PER_SECOND": "/ Sek.",
+  "CPU_USAGE_PERCENT": "CPU",
+  "MEMORY": "RAM",
+  "SWAP": "Swap",
+  "UPTIME": "Laufzeit"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "mmm-ff-process-stats",
+  "version": "1.0.0",
+  "description": "This [MagicMirror²](https://github.com/MichMich/MagicMirror) module, shows statistics from the electron process.",
+  "main": "MMM-FF-process-stats.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/shin10/MMM-FF-process-stats.git"
+  },
+  "author": "Michael Trenkler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shin10/MMM-FF-process-stats/issues"
+  },
+  "homepage": "https://github.com/shin10/MMM-FF-process-stats#readme"
+}

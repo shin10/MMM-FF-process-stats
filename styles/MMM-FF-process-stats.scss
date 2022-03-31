@@ -1,0 +1,44 @@
+/* Magic Mirror
+ * Module: MMM-FF-process-stats
+ *
+ * By Michael Trenkler
+ * ISC Licensed.
+ */
+
+ .MMM-FF-process-stats {
+  font-size: small;
+  ul {
+    display: table;
+    padding: 0;
+    margin: 0 0 0 auto;
+  }
+  li {
+    display: table-row;
+    padding: 0;
+    margin: 0;
+  }
+  .icon,
+  .key,
+  .val {
+    display: table-cell;
+  }
+  .icon {
+    text-align: center;
+    width: 3ch;
+  }
+  .key {
+    text-align: left;
+    padding-right: 1ch;
+  }
+  .val {
+    text-align: right;
+  }
+
+  .wrapper.single-line-layout {
+    display: flex;
+    justify-content: space-between;
+    & > row {
+      display: flex;
+    }
+  }
+}
