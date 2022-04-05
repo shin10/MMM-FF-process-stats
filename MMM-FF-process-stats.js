@@ -53,21 +53,59 @@ Module.register("MMM-FF-process-stats", {
     return this.stats?.systemVersion || "process stats";
   },
 
-  getTemplateData: function () {
-    const t = new Date((this.stats.uptime ?? 0) * 1000);
-    const days = Math.floor(this.stats.uptime / (24 * 60 * 60));
-    this.stats.uptime = days ? days + " " : "";
-    this.stats.uptime += t.toISOString().substr(11, 8);
+  getDom() {
+    const wrapper = document.createElement("div");
 
-    this.stats.systemMemoryInfo.total |= 1;
-    this.stats.systemMemoryInfo.swapTotal |= 1;
+    wrapper.innerHTML = `<ul>
+  <li>
+    <span class="icon">
+      <i class="fa fa-bell"></i>
+    </span>
+    <span class="key">${this.translate("CPU_USAGE_WAKEUPS_PER_SECOND")}</span>
+    <span class="val">${
+      this.stats.CPUUsage.idleWakeupsPerSecond
+    } ${this.translate("PER_SECOND")}</span>
+  </li>
+  <li>
+    <span class="icon">
+      <i class="fa fa-microchip"></i>
+    </span>
+    <span class="key">${this.translate("CPU_USAGE_PERCENT")}</span>
+    <span class="val">${this.stats.CPUUsage.percentCPUUsage.toFixed(2)} %</span>
+  </li>
+  <li>
+    <span class="icon">
+      <i class="fa fa-tachometer"></i>
+    </span>
+    <span class="key">${this.translate("MEMORY")}</span>
+    <span class="val">${(
+      (1 -
+        this.stats.systemMemoryInfo.free / this.stats.systemMemoryInfo.total) *
+      100
+    ).toFixed(1)} %</span>
+  </li>
+  <li>
+    <span class="icon">
+      <i class="fa fa-shuffle"></i>
+    </span>
+    <span class="key">${this.translate("SWAP")}</span>
+    <span class="val">${(
+      (1 -
+        this.stats.systemMemoryInfo.swapFree /
+          this.stats.systemMemoryInfo.swapTotal) *
+      100
+    ).toFixed(1)} %</span>
+  </li>
 
-    return {
-      stats: this.stats
-    };
-  },
+  <li>
+    <span class="icon">
+      <i class="fa fa-clock-o"></i>
+    </span>
+    <span class="key">${this.translate("UPTIME")}</span>
+    <span class="val">${this.stats.uptime}</span>
+  </li>
+</ul>`;
 
-  getTemplate() {
-    return "templates/stats.njk";
+    return wrapper;
   }
 });
