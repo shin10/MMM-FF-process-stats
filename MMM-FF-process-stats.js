@@ -89,12 +89,16 @@ Module.register("MMM-FF-process-stats", {
       <i class="fa fa-shuffle"></i>
     </span>
     <span class="key">${this.translate("SWAP")}</span>
-    <span class="val">${(
-      (1 -
-        this.stats.systemMemoryInfo.swapFree /
-          this.stats.systemMemoryInfo.swapTotal) *
-      100
-    ).toFixed(1)} %</span>
+    <span class="val">${
+      this.stats.systemMemoryInfo.swapTotal
+        ? (
+            (1 -
+              this.stats.systemMemoryInfo.swapFree /
+                this.stats.systemMemoryInfo.swapTotal) *
+            100
+          ).toFixed(1) + " %"
+        : "None"
+    }</span>
   </li>
 
   <li>
