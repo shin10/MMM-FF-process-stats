@@ -63,34 +63,48 @@ Module.register("MMM-FF-process-stats", {
     </span>
     <span class="key">${this.translate("CPU_USAGE_WAKEUPS_PER_SECOND")}</span>
     <span class="val">${
-      this.stats.CPUUsage.idleWakeupsPerSecond
-    } ${this.translate("PER_SECOND")}</span>
-  </li>
+      this.stats.CPUUsage?.idleWakeupsPerSecond
+        ? this.stats.CPUUsage?.idleWakeupsPerSecond +
+          " " +
+          this.translate("PER_SECOND")
+        : "N/A"
+    }
+</span >
+  </li >
   <li>
     <span class="icon">
       <i class="fa fa-microchip"></i>
     </span>
     <span class="key">${this.translate("CPU_USAGE_PERCENT")}</span>
-    <span class="val">${this.stats.CPUUsage.percentCPUUsage.toFixed(2)} %</span>
+    <span class="val">${
+      this.stats.CPUUsage?.percentCPUUsage
+        ? this.stats.CPUUsage?.percentCPUUsage?.toFixed(2) + " %"
+        : "N/A"
+    }</span>
   </li>
   <li>
     <span class="icon">
       <i class="fa fa-tachometer"></i>
     </span>
     <span class="key">${this.translate("MEMORY")}</span>
-    <span class="val">${(
-      (1 -
-        this.stats.systemMemoryInfo.free / this.stats.systemMemoryInfo.total) *
-      100
-    ).toFixed(1)} %</span>
-  </li>
+    <span class="val">${
+      this.stats.systemMemoryInfo
+        ? (
+            (1 -
+              this.stats.systemMemoryInfo?.free /
+                this.stats.systemMemoryInfo?.total) *
+            100
+          )?.toFixed(1) + " %"
+        : "N/A"
+    }</span>
+  </li >
   <li>
     <span class="icon">
       <i class="fa fa-shuffle"></i>
     </span>
     <span class="key">${this.translate("SWAP")}</span>
     <span class="val">${
-      this.stats.systemMemoryInfo.swapTotal
+      this.stats.systemMemoryInfo?.swapTotal
         ? (
             (1 -
               this.stats.systemMemoryInfo.swapFree /
@@ -106,7 +120,9 @@ Module.register("MMM-FF-process-stats", {
       <i class="fa fa-clock-o"></i>
     </span>
     <span class="key">${this.translate("UPTIME")}</span>
-    <span class="val">${this.stats.uptime}</span>
+    <span class="val">${
+      this.stats.uptime ? this.stats.uptime.toFixed() : "N/A"
+    }</span>
   </li>
 </ul>`;
 

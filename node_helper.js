@@ -35,11 +35,15 @@ module.exports = NodeHelper.create({
       // getHeapStatistics: process.getHeapStatistics(),
       // getBlinkMemoryInfo: process.getBlinkMemoryInfo(),
       // getProcessMemoryInfo: process.getProcessMemoryInfo(),
-      systemMemoryInfo: process.getSystemMemoryInfo(),
-      systemVersion: process.getSystemVersion(),
-      CPUUsage: process.getCPUUsage(),
+      systemMemoryInfo: process.getSystemMemoryInfo
+        ? process.getSystemMemoryInfo()
+        : null,
+      systemVersion: process.getSystemVersion
+        ? process.getSystemVersion()
+        : null,
+      CPUUsage: process.getCPUUsage ? process.getCPUUsage() : null,
       // getIOCounters: process.getIOCounters(),
-      uptime: process.uptime()
+      uptime: process.uptime ? process.uptime() : null
       // pid: process.pid,
       // arch: process.arch,
       // sandboxed: process.sandboxed,
